@@ -1,4 +1,4 @@
-
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 {{- if .Description -}}
@@ -29,7 +29,10 @@
 {{- with .Site.Params.customFavicon -}}
 <link rel="icon" href="{{ . | absURL }}" />
 {{- end }}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ "css/den.css" | absURL }}">
 {{ range .Site.Params.customCSS }}
@@ -42,10 +45,9 @@
 
 {{/* https://gohugo.io/templates/internal/ */}}
 {{- template "_internal/opengraph.html" . -}}
-{{- template "_internal/google_news.html" . -}}
 {{- template "_internal/schema.html" . -}}
 {{- template "_internal/twitter_cards.html" . -}}
 
-{{- if and .Site.GoogleAnalytics (not .Site.IsServer) -}}
-  {{ template "_internal/google_analytics_async.html" . }}
+{{- if and .Site.Config.Services.GoogleAnalytics.ID (not hugo.IsServer) -}}
+  {{ template "_internal/google_analytics.html" . }}
 {{- end -}}
