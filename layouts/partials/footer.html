@@ -48,8 +48,8 @@
           <small>
             {{ $current := now.Format "2006" -}}
             &copy; 
-            {{ if or .Site.Copyright .Site.Author.name -}}
-            {{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}
+            {{ if or .Site.Copyright .Site.Params.author.name -}}
+            {{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Params.author.name | safeHTML }}{{ end }}
             {{- end }}
             {{ if and .Site.Params.since (ne .Site.Params.since $current) }}
               {{ .Site.Params.since }} -
