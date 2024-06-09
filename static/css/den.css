@@ -330,7 +330,7 @@ h4:after {
 .translations a, .header-tags a {
   color: #fff;
 }
-.header-title, .header-subtitle, .header-logo a, .nav-menue a, .translations, .header-tags, .header-subtitle-homepage {
+.header-title, .header-subtitle, .header-logo a, .nav-menu a, .translations, .header-tags, .header-subtitle-homepage {
   text-shadow:
   -1px -1px 0 #5E83AB,
   1px -1px 0 #5E83AB,
